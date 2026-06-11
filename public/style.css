@@ -1,0 +1,546 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: #000;
+  color: #fff;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Views */
+.view {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.view.active {
+  display: flex;
+}
+
+/* Auth */
+.auth-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.auth-box {
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+.logo {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin-bottom: 4px;
+}
+.subtitle {
+  font-size: 14px;
+  letter-spacing: 12px;
+  color: #666;
+  margin-bottom: 48px;
+  text-transform: uppercase;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  text-align: center;
+}
+.input-group input:focus {
+  border-color: #fff;
+}
+.input-group input::placeholder {
+  color: #444;
+}
+
+#btn-auth {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+#btn-auth:hover {
+  background: #fff;
+  color: #000;
+}
+
+.error-msg {
+  margin-top: 16px;
+  color: #888;
+  font-size: 12px;
+}
+
+/* Menu */
+.menu-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.menu-header {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  margin-bottom: 48px;
+}
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 24px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+.menu-btn:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.03);
+}
+.menu-btn .btn-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+  color: #666;
+}
+
+/* Page containers */
+.page-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+}
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #222;
+}
+.page-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.back-btn {
+  background: none;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.back-btn:hover {
+  border-color: #fff;
+}
+
+/* Server list */
+.list-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.server-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #222;
+  transition: border-color 0.2s;
+  gap: 12px;
+}
+.server-card:hover {
+  border-color: #444;
+}
+.server-info {
+  flex: 1;
+  min-width: 0;
+}
+.server-name {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.server-host {
+  font-size: 12px;
+  color: #666;
+}
+.server-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.server-actions button {
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid #333;
+  color: #fff;
+  background: transparent;
+  letter-spacing: 1px;
+}
+.server-actions .btn-connect {
+  border-color: #555;
+}
+.server-actions .btn-connect:hover {
+  border-color: #fff;
+  background: #fff;
+  color: #000;
+}
+.server-actions .btn-edit:hover {
+  border-color: #888;
+}
+.server-actions .btn-delete:hover {
+  border-color: #888;
+}
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #444;
+  font-size: 13px;
+}
+
+/* Forms */
+.server-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.form-group input,
+.form-group select {
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus {
+  border-color: #fff;
+}
+.form-group input::placeholder {
+  color: #444;
+}
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.submit-btn {
+  padding: 14px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.submit-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Terminal */
+.terminal-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #222;
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.close-term {
+  background: none;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.close-term:hover {
+  border-color: #fff;
+}
+.terminal-container {
+  flex: 1;
+  overflow: hidden;
+  background: #000;
+}
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid #222;
+  flex-shrink: 0;
+}
+.terminal-bar input {
+  flex: 1;
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.terminal-bar input:focus {
+  border-color: #555;
+}
+.terminal-bar input::placeholder {
+  color: #333;
+}
+.terminal-bar input:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.quick-buttons {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.quick-buttons button {
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #888;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+  min-width: 40px;
+}
+.quick-buttons button:hover:not(:disabled) {
+  border-color: #fff;
+  color: #fff;
+}
+.quick-buttons button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Terminal xterm overrides */
+.xterm {
+  padding: 8px;
+  height: 100%;
+}
+.xterm-viewport {
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+.xterm-viewport::-webkit-scrollbar {
+  width: 6px;
+}
+.xterm-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+.xterm-viewport::-webkit-scrollbar-thumb {
+  background: #333;
+}
+.xterm .xterm-screen {
+  z-index: 0;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #333;
+  background: #000;
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #222;
+}
+.modal-header h3 {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.close-btn {
+  background: none;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.close-btn:hover {
+  border-color: #fff;
+}
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#file-input {
+  font-family: inherit;
+  color: #fff;
+  font-size: 13px;
+}
+#file-input::file-selector-button {
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 12px;
+  background: transparent;
+  border: 1px solid #444;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 12px;
+}
+#file-input::file-selector-button:hover {
+  border-color: #fff;
+}
+#upload-path {
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+#upload-path:focus {
+  border-color: #fff;
+}
+#upload-status {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  min-height: 18px;
+}
+#upload-status.success {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .auth-box { max-width: 100%; }
+  .logo { font-size: 48px; letter-spacing: 4px; }
+  .subtitle { letter-spacing: 8px; margin-bottom: 36px; }
+  .menu-header { font-size: 18px; letter-spacing: 4px; margin-bottom: 36px; }
+  .menu-btn { padding: 14px 18px; font-size: 14px; }
+  .page-container { padding: 16px; }
+  .server-card { flex-direction: column; align-items: stretch; gap: 12px; }
+  .server-actions { justify-content: flex-end; }
+  .form-row { flex-direction: column; gap: 16px; }
+  .terminal-bar { flex-direction: column; gap: 6px; padding: 8px; }
+  .terminal-bar input { width: 100%; }
+  .quick-buttons { width: 100%; justify-content: flex-end; }
+  .modal-content { max-width: 100%; }
+  .xterm { padding: 4px; }
+  .terminal-header { padding: 8px 12px; font-size: 11px; }
+}
