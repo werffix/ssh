@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      - ACCESS_KEY=${ACCESS_KEY}
+      - PORT=3000
+    volumes:
+      - ssh-data:/app/data
+    networks:
+      - ssh-net
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks:
+      - ssh-net
+
+volumes:
+  ssh-data:
+  caddy-data:
+  caddy-config:
+
+networks:
+  ssh-net:
